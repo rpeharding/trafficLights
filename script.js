@@ -1,10 +1,9 @@
-// FORK THIS PEN
+// // FORK THIS PEN - // I've treated each question separately as though I need to define everything again to help myself not write over stuff I want to go back to
+// // comment out whichever q you're not looking at as there'll be redeclarations otherwise.
 
-// 1. Wire up the buttons to the lights
-// You'll have to select and store the lights as a variable (although it may help you later to have a reference to all of them at once via the 'light' class)
-// const lightsRef = document.querySelectorAll(".light");
+// // 1. Wire up the buttons to the lights
+// // You'll have to select and store the lights as a variable (although it may help you later to have a reference to all of them at once via the 'light' class)
 
-//HOW DO I NOT REPEAT MYSELF?
 // stopButton.addEventListener("click", () => {
 //   stopLight.classList.add("on");
 // });
@@ -15,7 +14,7 @@
 //   stopLight.classList.remove("on");
 // });
 
-// //CAUTION
+// // //CAUTION
 
 // cautionButton.addEventListener("click", () => {
 //   cautionLight.classList.add("on");
@@ -29,7 +28,7 @@
 //   cautionLight.classList.remove("on");
 // });
 
-// //GO
+// // //GO
 
 // goButton.addEventListener("click", () => {
 //   goLight.classList.add("on");
@@ -42,7 +41,7 @@
 //   goLight.classList.remove("on");
 // });
 
-// 2. (Extra credit): Have a go at making it so that only one light can be on at one time
+// // 2. (Extra credit): Have a go at making it so that only one light can be on at one time
 
 // const lightSetUp = (lightType) => {
 //   const Light = document.querySelector(`.${lightType}`);
@@ -81,22 +80,23 @@ const lightSetUp = (lightType) => {
 };
 
 const lights = ["stop", "caution", "go"];
-// lights.forEach(lightSetUp);
 
 const startTimerRef = document.getElementById("startTimer");
-startTimerRef.addEventListener("click", timer);
+startTimerRef.addEventListener("click", loopFunction);
 
 function timer() {
   setTimeout(() => {
     lightSetUp("stop");
-    console.log("red");
   }, "2000");
   setTimeout(() => {
     lightSetUp("caution");
-    console.log("orange");
   }, "4000");
   setTimeout(() => {
     lightSetUp("go");
-    console.log("green");
   }, "6000");
+}
+
+// not sure how to make it so there isnt a big delay on first click.
+function loopFunction() {
+  setInterval(timer, 6000);
 }
